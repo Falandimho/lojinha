@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../imagens/flor-bg.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+:root{
+    --titulo: #cf8c95;
+    --cinza: #5a5e61;
+    --fundo: #ecececef;
+    --subtitulo: #cf97a0;
+    --rosinha: #d9a3ac;
+}
+
+.content {
+    width: 85%;
+    height: 560px;
+    padding: 1em;
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    background: var(--fundo);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    text-shadow: #c0c0c0 1px 1px 2px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+h2{
+    text-align: center;
+    color: var(--titulo);
+    font-family: 'Secular One', sans-serif;
+}
+
+input:not([type="radio"]){
+    height: 1.5em;
+    border: 1px solid;
+    border-radius: 5px;
+    padding-left: 3px;
+}
+
+label{
+    font-weight: bold;
+    color: var(--cinza);
+}
+
+textarea {
+    padding-left: 3px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: bold;
+    color:  rgba(0, 0, 0, 0.5);
+}
+
+.infos{
+    color: var(--subtitulo);
+    font-weight: 800;
+    font-size: 1.2em;
+}
+
+#desc {
+    resize: none;
+}
+
+#parte1{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    gap: 4.5px;
+}
+
+#parte2{
+    position: absolute;
+    top: 15px;
+    left: 51.5%;
+    display: flex;
+    flex-direction: column;
+    width: 560px;
+    gap: 10px;
+}
+
+#parte3{
+    position: absolute;
+    top: 49.2%;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    gap: 10px;
+}
+
+input[type=submit]{
+    position:absolute;
+    left: 51.5%;
+    top: 90%;
+    width: 200px;
+    height: 30px;
+    background-color: var(--titulo);
+    border: 0px;
+    border-radius: 10px;
+    color: var(--fundo);
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+input[type=submit]:hover{
+    background-color: var(--cinza);
+    transition: 0.5s ease;
+}
+
+input[type=file]{
+    border: 1px;
+    padding: 3px;
+    background-color: var(--rosinha);
+    color: var(--cinza);
+    font-weight: bold;
+    cursor:pointer;
+}
+
+.inicio{
+    position:absolute;
+    left: 70%;
+    top: 91%;
+    color: var(--titulo);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.inicio:hover{
+    color: var(--cinza);
+    font-weight: bolder;
+}
+

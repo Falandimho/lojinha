@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--rosinha);
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+:root {
+    --titulo: #cf8c95;
+    --cinza: #5a5e61;
+    --fundo: #ececec;
+    --subtitulo: #cf97a0;
+    --rosinha: #d9a3ac;
+}
+
+#menu {
+    width: 19%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: var(--fundo);
+    padding-left: 5px;
+    padding-right: 5px;
+    border-right: 2px solid var(--titulo);
+    text-shadow: #c0c0c0 1px 1px 2px;  
+    z-index: 2;
+}
+
+#menu h2 {
+    color: var(--cinza);
+}
+
+#menu label {
+    margin-left: 5px;
+    color: var(--titulo);
+}
+
+.qtd-peca {
+    width: 63%;
+    height: 2em;
+    background-color: var(--fundo);
+    border: 1px solid var(--titulo);
+    border-radius: 5px;
+    color: var(--cinza);
+    font-weight: bold;
+    text-shadow: #c0c0c0 1px 1px 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    position: fixed;
+    top: 3px;
+    left: 36%;
+    z-index: 3;
+}
+
+.content {
+    width: 79%;
+    font-weight: bold;
+    color: var(--cinza);
+    text-shadow: #c0c0c0 1px 1px 2px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    left: 20.5%;
+    padding-top: 3em;
+}
+
+.card {
+    width: 460px;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    border: 2px solid var(--titulo);
+    background-color: var(--fundo);
+    position: relative;
+}
+
+.edit {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    position: absolute;
+    left: 88%;
+    top: 10px;
+    z-index: 3;
+}
+
+.edit a {
+    text-decoration: none;
+    color: var(--rosinha);
+    text-shadow: #c0c0c0 1px 1px 2px;
+    font-weight: bold;
+}
+
+.edit img {
+    max-width: 1em;
+    max-height: 1em;
+}
+
+.info {
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.img {
+    display: flex;
+    align-items: center;
+    height: auto;
+    width: auto;
+}
+
+#img-roupa {
+    max-width: 250px;
+    max-height: 550px;
+    width: auto;
+    height: auto;
+}
+
+#busca {
+    width: 50%;
+}
+
+input[type=text]{
+    width: 95%;
+    height: 2em;
+    padding-left: 5px;
+    margin-top: 1em;
+    border: 1px solid var(--titulo);
+    border-radius: 4px;
+    outline: none;
+}
+
+.button-filter{
+    width: 5em;
+    height: 2em;
+    border: 1px solid var(--titulo);
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-right: 5px;
+    padding: 4px;
+    background-color: var(--rosinha);
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: bold;
+    color: var(--fundo);
+    cursor: pointer;
+}
+
+p {
+    margin: 0;
+}
+
+b {
+    color: var(--titulo);
+}
+
+details {
+    transition: height 1s ease;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+details:not([open]) {
+    height: 22px;
+}
+
+details[open] {
+    height: 198px;
+}
+
+#det:not([open]) {
+    height: 22px;
+}
+
+#det[open] {
+    height: 264px;
+}
+
+#link{  
+    position: absolute;
+    left: 50%;
+    margin-top: 5px;
+}
+#link a{
+    color: var(--subtitulo);
+}
