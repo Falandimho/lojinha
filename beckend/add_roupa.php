@@ -27,11 +27,11 @@ $cor = $_POST['cor'];
 $status = $_POST['sit'];
 $arquivo = $_FILES['foto'];
 
-if ($arquivo == "oi") {
-    if ($arquivo['error']) {
-        die("Falha ao enviar arquivo");
-    }
+
+if ($arquivo['error']) {
+    die("Falha ao enviar arquivo");
 }
+
 
 $pasta = "arquivos/";
 $nomeArq = $arquivo['name'];
@@ -46,97 +46,7 @@ $path = "../" . $pasta . $novoNomeArq . "." . $extensao;
 $deu_certo = move_uploaded_file($arquivo["tmp_name"], $path);
 
 
-if ($tipo == "Blusa" || $tipo == "Blazer" || $tipo == "Jaqueta" || $tipo == "T-shirt" || $tipo == "Camisa") {
-    $stmt = $con->prepare("INSERT INTO pecas (`cod`, `tipo`, `cor`, `marca`, `tamanho`, `comprimento`, `forma_compra`, `forma_venda`,
-    `valor_custo`, `valor_pago`, `valor_cheio`, `valor_venda`, `valor_prazo`, `valor_vista`, `parcelas`, `desconto`, `data_compra`,
-    `data_venda`, `descricao`, `med_ombro`, `med_busto`, `med_cintura`, `situacao`) 
-
-    VALUES (:cod, :tipo, :cor, :marca, :tamanho, :comp, :forma_compra, :forma_venda, :valor_custo, :valor_pago, :valor_cheio,
-    :valor_venda, :valor_prazo, :valor_vista, :parcelas, :desconto, :data_compra, :data_venda, :descricao, :med_ombro, :med_busto,
-    :med_cintura, :situacao)");
-
-    $stmt->execute(array(
-        ':cod' => $cod,
-        ':tipo' => $tipo,
-        ':cor' => $cor,
-        ':marca' => $marca,
-        ':tamanho' => $tamanho,
-        ':comp' => $comp,
-        ':forma_compra' => $forma_compra,
-        ':forma_venda' => $forma_venda,
-        ':valor_custo' => $val_custo,
-        ':valor_pago' => $val_pago,
-        ':valor_cheio' => $val_cheio,
-        ':valor_venda' => $val_venda,
-        ':valor_prazo' => $val_prazo,
-        ':valor_vista' => $val_vista,
-        ':parcelas' => $parce,
-        ':desconto' => $desconto,
-        ':data_compra' => $data_compra,
-        ':data_venda' => $data_venda,
-        ':descricao' => $desc,
-        ':med_ombro' => $med_ombro,
-        ':med_busto' => $med_busto,
-        ':med_cintura' => $med_cintura,
-        ':situacao' => $status
-    ));
-
-    if ($stmt->rowCount() > 0) {
-        if ($deu_certo) {
-            $stmt = $con->prepare("INSERT INTO imagens (caminho, cod_peca) VALUES (:caminho, :cod_peca)");
-            $stmt->execute(array(
-                ':caminho' => $path,
-                ':cod_peca' => $cod
-            ));
-        }
-        header('location: ../tela_add_roupa.php');
-    }
-} else if ($tipo == "Saia") {
-    $stmt = $con->prepare("INSERT INTO pecas (`cod`, `tipo`, `cor`, `marca`, `tamanho`, `comprimento`, `forma_compra`, `forma_venda`,
-    `valor_custo`, `valor_pago`, `valor_cheio`, `valor_venda`, `valor_prazo`, `valor_vista`, `parcelas`, `desconto`, `data_compra`, 
-    `data_venda`, `descricao`, `med_cintura`, `med_quadril`, `situacao`) 
-
-    VALUES (:cod, :tipo, :cor, :marca, :tamanho, :comp, :forma_compra, :forma_venda, :valor_custo, :valor_pago, :valor_cheio,
-    :valor_venda, :valor_prazo, :valor_vista, :parcelas, :desconto, :data_compra, :data_venda, :descricao, :med_cintura,
-    :med_quadril, :situacao)");
-
-    $stmt->execute(array(
-        ':cod' => $cod,
-        ':tipo' => $tipo,
-        ':cor' => $cor,
-        ':marca' => $marca,
-        ':tamanho' => $tamanho,
-        ':comp' => $comp,
-        ':forma_compra' => $forma_compra,
-        ':forma_venda' => $forma_venda,
-        ':valor_custo' => $val_custo,
-        ':valor_pago' => $val_pago,
-        ':valor_cheio' => $val_cheio,
-        ':valor_venda' => $val_venda,
-        ':valor_prazo' => $val_prazo,
-        ':valor_vista' => $val_vista,
-        ':parcelas' => $parce,
-        ':desconto' => $desconto,
-        ':data_compra' => $data_compra,
-        ':data_venda' => $data_venda,
-        ':descricao' => $desc,
-        ':med_cintura' => $med_cintura,
-        ':med_quadril' => $med_quadril,
-        ':situacao' => $status
-    ));
-
-    if ($stmt->rowCount() > 0) {
-        if ($deu_certo) {
-            $stmt = $con->prepare("INSERT INTO imagens (caminho, cod_peca) VALUES (:caminho, :cod_peca)");
-            $stmt->execute(array(
-                ':caminho' => $path,
-                ':cod_peca' => $cod
-            ));
-        }
-        header('location: ../tela_add_roupa.php');
-    }
-} else if ($tipo == "Conjunto" || $tipo == "Vestido") {
-    $stmt = $con->prepare("INSERT INTO pecas (`cod`, `tipo`, `cor`, `marca`, `tamanho`, `comprimento`, `forma_compra`, `forma_venda`,
+$stmt = $con->prepare("INSERT INTO pecas (`cod`, `tipo`, `cor`, `marca`, `tamanho`, `comprimento`, `forma_compra`, `forma_venda`,
     `valor_custo`, `valor_pago`, `valor_cheio`, `valor_venda`, `valor_prazo`, `valor_vista`, `parcelas`, `desconto`, `data_compra`,
     `data_venda`, `descricao`, `med_ombro`, `med_busto`, `med_cintura`, `med_quadril`, `situacao`) 
 
@@ -144,33 +54,34 @@ if ($tipo == "Blusa" || $tipo == "Blazer" || $tipo == "Jaqueta" || $tipo == "T-s
     :valor_venda, :valor_prazo, :valor_vista, :parcelas, :desconto, :data_compra, :data_venda, :descricao, :med_ombro, :med_busto,
     :med_cintura, :med_quadril, :situacao)");
 
-    $stmt->execute(array(
-        ':cod' => $cod,
-        ':tipo' => $tipo,
-        ':cor' => $cor,
-        ':marca' => $marca,
-        ':tamanho' => $tamanho,
-        ':comp' => $comp,
-        ':forma_compra' => $forma_compra,
-        ':forma_venda' => $forma_venda,
-        ':valor_custo' => $val_custo,
-        ':valor_pago' => $val_pago,
-        ':valor_cheio' => $val_cheio,
-        ':valor_venda' => $val_venda,
-        ':valor_prazo' => $val_prazo,
-        ':valor_vista' => $val_vista,
-        ':parcelas' => $parce,
-        ':desconto' => $desconto,
-        ':data_compra' => $data_compra,
-        ':data_venda' => $data_venda,
-        ':descricao' => $desc,
-        ':med_ombro' => $med_ombro,
-        ':med_busto' => $med_busto,
-        ':med_cintura' => $med_cintura,
-        ':med_quadril' => $med_quadril,
-        ':situacao' => $status
-    ));
+$stmt->execute(array(
+    ':cod' => $cod,
+    ':tipo' => $tipo,
+    ':cor' => $cor,
+    ':marca' => $marca,
+    ':tamanho' => $tamanho,
+    ':comp' => $comp,
+    ':forma_compra' => $forma_compra,
+    ':forma_venda' => $forma_venda,
+    ':valor_custo' => $val_custo,
+    ':valor_pago' => $val_pago,
+    ':valor_cheio' => $val_cheio,
+    ':valor_venda' => $val_venda,
+    ':valor_prazo' => $val_prazo,
+    ':valor_vista' => $val_vista,
+    ':parcelas' => $parce,
+    ':desconto' => $desconto,
+    ':data_compra' => $data_compra,
+    ':data_venda' => $data_venda,
+    ':descricao' => $desc,
+    ':med_ombro' => $med_ombro,
+    ':med_busto' => $med_busto,
+    ':med_cintura' => $med_cintura,
+    ':med_quadril' => $med_quadril,
+    ':situacao' => $status
+));
 
+if ($stmt->rowCount() > 0) {
     if ($deu_certo) {
         $stmt = $con->prepare("INSERT INTO imagens (caminho, cod_peca) VALUES (:caminho, :cod_peca)");
         $stmt->execute(array(
@@ -178,11 +89,5 @@ if ($tipo == "Blusa" || $tipo == "Blazer" || $tipo == "Jaqueta" || $tipo == "T-s
             ':cod_peca' => $cod
         ));
     }
-
-    if ($stmt->rowCount() > 0) {
-        header('location: ../tela_add_roupa.php');
-    } else {
-        alerta("error", false, "Algo está faltando");
-        header("Refresh: 2");
-    }
+    header('location: ../tela_add_roupa.php');
 }
