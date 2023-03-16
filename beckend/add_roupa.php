@@ -45,14 +45,13 @@ if ($extensao != "jpg" && $extensao = !"png" && $extensao = !"jpeg") {
 $path = "../" . $pasta . $novoNomeArq . "." . $extensao;
 $deu_certo = move_uploaded_file($arquivo["tmp_name"], $path);
 
-
 $stmt = $con->prepare("INSERT INTO pecas (`cod`, `tipo`, `cor`, `marca`, `tamanho`, `comprimento`, `forma_compra`, `forma_venda`,
-    `valor_custo`, `valor_pago`, `valor_cheio`, `valor_venda`, `valor_prazo`, `valor_vista`, `parcelas`, `desconto`, `data_compra`,
-    `data_venda`, `descricao`, `med_ombro`, `med_busto`, `med_cintura`, `med_quadril`, `situacao`) 
+`valor_custo`, `valor_pago`, `valor_cheio`, `valor_venda`, `valor_prazo`, `valor_vista`, `parcelas`, `desconto`, `data_compra`, 
+`data_venda`, `descricao`, `med_ombro`, `med_busto`, `med_cintura`, `med_quadril`, `situacao`) 
 
-    VALUES (:cod, :tipo, :cor, :marca, :tamanho, :comp, :forma_compra, :forma_venda, :valor_custo, :valor_pago, :valor_cheio,
-    :valor_venda, :valor_prazo, :valor_vista, :parcelas, :desconto, :data_compra, :data_venda, :descricao, :med_ombro, :med_busto,
-    :med_cintura, :med_quadril, :situacao)");
+VALUES (:cod, :tipo, :cor, :marca, :tamanho, :comp, :forma_compra, :forma_venda, :valor_custo, :valor_pago,
+:valor_cheio, :valor_venda, :valor_prazo, :valor_vista, :parcelas, :desconto, :data_compra, :data_venda, :descricao, :med_ombro,
+:med_busto, med_cintura, :med_quadril, :situacao)");
 
 $stmt->execute(array(
     ':cod' => $cod,
