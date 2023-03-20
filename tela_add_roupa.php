@@ -1,3 +1,21 @@
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<?php
+session_start();
+
+function alerta($type, $title, $msg)
+{
+    echo "<script type='text/javascript'>
+		Swal.fire({
+			icon: '$type',
+			title: '$title',
+			text: '$msg',
+			showConfirmButton: false,
+			timer: 2500
+		});
+		</script>";
+}
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -16,6 +34,12 @@
 </head>
 
 <body>
+    <?php
+    if ($_SESSION['erro'] == true) {
+        alerta("error", "Algo deu errado", "Esse código já está cadastrado");
+        $_SESSION['erro'] = false;
+    }
+    ?>
     <div class="content">
         <form method="post" action="beckend/add_roupa.php" enctype="multipart/form-data">
 
@@ -152,7 +176,7 @@
                 <P><label for="data-venda">Data da Venda: </label>
                     <input style="width: 73.5%" type="date" name="data-venda" id="data-venda">
                 </p>
-                
+
                 <p class="infos">Situação:</p>
                 <p><input type="radio" name="sit" id="vendido" value="Vendido">
                     <label for="vendido">Vendido</label>
