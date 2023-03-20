@@ -35,7 +35,7 @@ function alerta($type, $title, $msg)
 
 <body>
     <?php
-    if ($_SESSION['erro'] == true) {
+    if (isset($_SESSION['erro'])) {
         alerta("error", "Algo deu errado", "Esse código já está cadastrado");
         $_SESSION['erro'] = false;
     }
