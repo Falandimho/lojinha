@@ -418,39 +418,54 @@ if (isset($_POST['submit'])) {
 
             // data
             $data_comp = $instrucao['data_compra'];
-            $testedata = explode("-", $data_comp);
-            $data_comp = "$testedata[2]/$testedata[1]/$testedata[0]";
+            if (!empty($data_comp)) {
+                $testedata = explode("-", $data_comp);
+                $data_comp = "$testedata[2]/$testedata[1]/$testedata[0]";
+            }
 
-            $data_vend = $instrucao['data_venda'];
-            $testedata = explode("-", $data_vend);
-            $data_vend = "$testedata[2]/$testedata[1]/$testedata[0]";
-
+            $data_venda = $instrucao['data_venda'];
+            if (!empty($data_venda)) {
+                $testedata = explode("-", $data_venda);
+                $data_venda = "$testedata[2]/$testedata[1]/$testedata[0]";
+            }
 
             //<-----------------Escrita dos Valores----------------->
 
             $valor_custo = $instrucao['valor_custo'];
-            $testepreco = explode(".", $valor_custo);
-            $valor_custo = "R$ $testepreco[0],$testepreco[1]";
+            if (!empty($valor_custo)) {
+                $testepreco = explode(".", $valor_custo);
+                $valor_custo = "R$ $testepreco[0],$testepreco[1]";
+            }
 
             $valor_cheio = $instrucao['valor_cheio'];
-            $testepreco = explode(".", $valor_cheio);
-            $valor_cheio = "R$ $testepreco[0],$testepreco[1]";
+            if (!empty($valor_cheio)) {
+                $testepreco = explode(".", $valor_cheio);
+                $valor_cheio = "R$ $testepreco[0],$testepreco[1]";
+            }
 
             $valor_pago = $instrucao['valor_pago'];
-            $testepreco = explode(".", $valor_pago);
-            $valor_pago = "R$ $testepreco[0],$testepreco[1]";
+            if (!empty($valor_pago)) {
+                $testepreco = explode(".", $valor_pago);
+                $valor_pago = "R$ $testepreco[0],$testepreco[1]";
+            }
 
             $valor_vista = $instrucao['valor_vista'];
-            $testepreco = explode(".", $valor_vista);
-            $valor_vista = "R$ $testepreco[0],$testepreco[1]";
+            if (!empty($valor_vista)) {
+                $testepreco = explode(".", $valor_vista);
+                $valor_vista = "R$ $testepreco[0],$testepreco[1]";
+            }
 
             $valor_venda = $instrucao['valor_venda'];
-            $testepreco = explode(".", $valor_venda);
-            $valor_venda = "R$ $testepreco[0],$testepreco[1]";
+            if (!empty($valor_venda)) {
+                $testepreco = explode(".", $valor_venda);
+                $valor_venda = "R$ $testepreco[0],$testepreco[1]";
+            }
 
             $valor_prazo = $instrucao['valor_prazo'];
-            $testepreco = explode(".", $valor_prazo);
-            $valor_prazo = "R$ $testepreco[0],$testepreco[1]";
+            if (!empty($valor_prazo)) {
+                $testepreco = explode(".", $valor_prazo);
+                $valor_prazo = "R$ $testepreco[0],$testepreco[1]";
+            }
 
             //<-----------------Escrita das Medidas----------------->
 
@@ -570,39 +585,54 @@ if (isset($_POST['submit'])) {
 
         // data
         $data_comp = $instrucao['data_compra'];
-        $testedata = explode("-", $data_comp);
-        $data_comp = "$testedata[2]/$testedata[1]/$testedata[0]";
+        if (!empty($data_comp)) {
+            $testedata = explode("-", $data_comp);
+            $data_comp = "$testedata[2]/$testedata[1]/$testedata[0]";
+        }
 
-        $data_vend = $instrucao['data_venda'];
-        $testedata = explode("-", $data_vend);
-        $data_vend = "$testedata[2]/$testedata[1]/$testedata[0]";
-
+        $data_venda = $instrucao['data_venda'];
+        if (!empty($data_venda)) {
+            $testedata = explode("-", $data_venda);
+            $data_venda = "$testedata[2]/$testedata[1]/$testedata[0]";
+        }
 
         //<-----------------Escrita dos Valores----------------->
 
         $valor_custo = $instrucao['valor_custo'];
-        $testepreco = explode(".", $valor_custo);
-        $valor_custo = "R$ $testepreco[0],$testepreco[1]";
+        if (!empty($valor_custo)) {
+            $testepreco = explode(".", $valor_custo);
+            $valor_custo = "R$ $testepreco[0],$testepreco[1]";
+        }
 
         $valor_cheio = $instrucao['valor_cheio'];
-        $testepreco = explode(".", $valor_cheio);
-        $valor_cheio = "R$ $testepreco[0],$testepreco[1]";
+        if (!empty($valor_cheio)) {
+            $testepreco = explode(".", $valor_cheio);
+            $valor_cheio = "R$ $testepreco[0],$testepreco[1]";
+        }
 
         $valor_pago = $instrucao['valor_pago'];
-        $testepreco = explode(".", $valor_pago);
-        $valor_pago = "R$ $testepreco[0],$testepreco[1]";
+        if (!empty($valor_pago)) {
+            $testepreco = explode(".", $valor_pago);
+            $valor_pago = "R$ $testepreco[0],$testepreco[1]";
+        }
 
         $valor_vista = $instrucao['valor_vista'];
-        $testepreco = explode(".", $valor_vista);
-        $valor_vista = "R$ $testepreco[0],$testepreco[1]";
+        if (!empty($valor_vista)) {
+            $testepreco = explode(".", $valor_vista);
+            $valor_vista = "R$ $testepreco[0],$testepreco[1]";
+        }
 
         $valor_venda = $instrucao['valor_venda'];
-        $testepreco = explode(".", $valor_venda);
-        $valor_venda = "R$ $testepreco[0],$testepreco[1]";
+        if (!empty($valor_venda)) {
+            $testepreco = explode(".", $valor_venda);
+            $valor_venda = "R$ $testepreco[0],$testepreco[1]";
+        }
 
         $valor_prazo = $instrucao['valor_prazo'];
-        $testepreco = explode(".", $valor_prazo);
-        $valor_prazo = "R$ $testepreco[0],$testepreco[1]";
+        if (!empty($valor_prazo)) {
+            $testepreco = explode(".", $valor_prazo);
+            $valor_prazo = "R$ $testepreco[0],$testepreco[1]";
+        }
 
         //<-----------------Escrita das Medidas----------------->
 
@@ -637,7 +667,6 @@ if (isset($_POST['submit'])) {
         } else {
             $med_quadril = " ";
         }
-
         // Imagens
 
         $stmt2 = $con->query("SELECT * FROM imagens WHERE id_peca = '$id'");
@@ -676,7 +705,10 @@ if (isset($_POST['submit'])) {
                 </details>
                 <details id="det">
                     <summary>Informações de compra</summary>
-                    <p>Forma de compra: <b><?php echo ucfirst($forma_compra); ?></b></p>
+                    <p>Forma de compra: <b><?php
+                        if (!empty($forma_compra)) {
+                            echo ucfirst($forma_compra);
+                        } ?></b></p>
                     <p>Forma de venda: <b><?php echo $forma_venda; ?></b></p>
                     <p>Valor de custo: <b><?php echo $valor_custo; ?></b></p>
                     <p>Valor pago: <b><?php echo $valor_pago; ?></b></p>
@@ -685,7 +717,7 @@ if (isset($_POST['submit'])) {
                     <p>Valor prazo: <b><?php echo $valor_prazo; ?></b></p>
                     <p>Desconto: <b><?php echo $desconto; ?></b></p>
                     <p>Data de compra: <b><?php echo $data_comp; ?></b></p>
-                    <p>Data de venda: <b><?php echo $data_vend; ?></b></p>
+                    <p>Data de venda: <b><?php echo $data_venda; ?></b></p>
                     <p>Parcelas: <b><?php echo $parce; ?></b></p>
                 </details>
             </div>

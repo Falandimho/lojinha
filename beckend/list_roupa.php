@@ -432,8 +432,10 @@ if (isset($_POST['submit'])) {
             //<-----------------Escrita dos Valores----------------->
 
             $valor_custo = $instrucao['valor_custo'];
-            $testepreco = explode(".", $valor_custo);
-            $valor_custo = "R$ $testepreco[0],$testepreco[1]";
+            if (!empty($valor_custo)) {
+                $testepreco = explode(".", $valor_custo);
+                $valor_custo = "R$ $testepreco[0],$testepreco[1]";
+            }
 
             $valor_cheio = $instrucao['valor_cheio'];
             if (!empty($valor_cheio)) {
@@ -599,8 +601,10 @@ if (isset($_POST['submit'])) {
         //<-----------------Escrita dos Valores----------------->
 
         $valor_custo = $instrucao['valor_custo'];
-        $testepreco = explode(".", $valor_custo);
-        $valor_custo = "R$ $testepreco[0],$testepreco[1]";
+        if (!empty($valor_custo)) {
+            $testepreco = explode(".", $valor_custo);
+            $valor_custo = "R$ $testepreco[0],$testepreco[1]";
+        }
 
         $valor_cheio = $instrucao['valor_cheio'];
         if (!empty($valor_cheio)) {
@@ -669,7 +673,6 @@ if (isset($_POST['submit'])) {
 
         $stmt2 = $con->query("SELECT * FROM imagens WHERE id_peca = '$id'");
         while ($instrucao2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
-
             $caminho = $instrucao2['caminho'];
         }
         ?>
@@ -681,7 +684,13 @@ if (isset($_POST['submit'])) {
                 <img src="imagens/edit_image.png">
             </div>
             <div class="img">
-                <img id="img-roupa" src="<?php echo $caminho; ?>"></img>
+                <?php
+                if (!empty($caminho)) {
+                    echo "<img id='img-roupa' src='$caminho'></img>";
+                } else {
+                    echo "<div class='img-roupa' style='margin-right: 30px; color: var(--rosinha)'>Sem Imagem</div>";
+                }
+                ?>
             </div>
 
             <div class="info">
@@ -703,7 +712,10 @@ if (isset($_POST['submit'])) {
                 </details>
                 <details id="det">
                     <summary>Informações de compra</summary>
-                    <p>Forma de compra: <b><?php echo ucfirst($forma_compra); ?></b></p>
+                    <p>Forma de compra: <b><?php
+                        if (!empty($forma_compra)) {
+                            echo ucfirst($forma_compra);
+                        } ?></b></p>
                     <p>Forma de venda: <b><?php echo $forma_venda; ?></b></p>
                     <p>Valor de custo: <b><?php echo $valor_custo; ?></b></p>
                     <p>Valor pago: <b><?php echo $valor_pago; ?></b></p>

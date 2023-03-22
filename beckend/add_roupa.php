@@ -29,7 +29,6 @@ $status = $_POST['sit'];
 $arquivo = $_FILES['foto'] ?: null;
 
 try {
-
     $stmt = $con->prepare("INSERT INTO pecas (`cod`, `tipo`, `cor`, `marca`, `tamanho`, `comprimento`, `forma_compra`, `forma_venda`,
 `valor_custo`, `valor_pago`, `valor_cheio`, `valor_venda`, `valor_prazo`, `valor_vista`, `parcelas`, `desconto`, `data_compra`,
 `data_venda`, `descricao`, `med_ombro`, `med_busto`, `med_cintura`, `med_quadril`, `situacao`)
@@ -74,7 +73,7 @@ VALUES (:cod, :tipo, :cor, :marca, :tamanho, :comprimento, :forma_compra, :forma
             }
 
 
-            $pasta = "arquivos/";
+            $pasta = "imagens/pecas/";
             $nomeArq = $arquivo['name'];
             $novoNomeArq = uniqid();
             $extensao = strtolower(pathinfo($nomeArq, PATHINFO_EXTENSION));
