@@ -248,8 +248,8 @@ while ($instrucao = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     <input style="width: 93%" type="text" name="cor" id="cor" value="<?php echo $cor; ?>">
                 </p>
 
-                <p><label for="desc">Descrição do Produto: </label>
-                    <input style="width: 69%" type="text" name="descricao" id="desc" value="<?php echo $desc; ?>">
+                <p style="display: flex; align-items: center; gap: 5px;"><label for="desc">Descrição do Produto: </label>
+                    <textarea style="width: 69%" type="text" name="descricao" id="desc" value="<?php echo $desc; ?>"></textarea>
                 </p>
 
                 <p><label for="foto">Selecione um arquivo de imagem: </label>

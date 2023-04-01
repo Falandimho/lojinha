@@ -48,7 +48,7 @@ function alerta($type, $title, $msg)
                 <h2>Preencha as informações</h2>
 
                 <p><label for="cod">Código da peça: </label>
-                    <input style="width: 73%" type="number" name="cod" id="cod" maxlength="5" required>
+                    <input style="width: 73%" type="number" name="cod" id="cod" maxlength="10" required>
                 </p>
 
                 <p><label for="marca">Marca da peça: </label>
@@ -84,7 +84,7 @@ function alerta($type, $title, $msg)
 
                 <!-- comprimento -->
                 <p class="infos">Comprimento da peça:</p>
-                <p><input type="radio" name="comp" id="curto" value="Curto" required>
+                <p><input type="radio" name="comp" id="curto" value="Curto">
                     <label for="curto">Curto</label>
 
                     <input type="radio" name="comp" id="midi" value="Midi">
@@ -212,7 +212,7 @@ function alerta($type, $title, $msg)
                 </p>
 
                 <p style="display: flex; align-items: center; gap: 5px;"><label for="desc">Descrição do Produto: </label>
-                    <textarea style="width: 69%" type="text" name="descricao" id="desc">Descrição do Produto</textarea>
+                    <textarea style="width: 69%" type="text" name="descricao" id="desc" placeholder="Descrição do Produto"></textarea>
                 </p>
 
                 <p><label for="foto">Selecione um arquivo de imagem: </label>
