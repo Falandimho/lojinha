@@ -84,7 +84,7 @@ if ($stmt->rowCount() > 0) {
             die("Falha ao enviar arquivo");
         }
 
-        $pasta = "arquivos/";
+        $pasta = "imagens/pecas";
         $nomeArq = $arquivo['name'];
         $novoNomeArq = uniqid();
         $extensao = strtolower(pathinfo($nomeArq, PATHINFO_EXTENSION));
